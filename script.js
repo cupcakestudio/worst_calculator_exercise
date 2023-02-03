@@ -6,7 +6,7 @@ let arithOperator = document.querySelector("#operator");
 let subOneNumber; // the new firstnumber after a calculation
 let dropdownOperator = "undefined"; //dropdownOperator var storing arithOperators indicies.
 //dropdown menu value set to undefined, if no input on dropdown has been detected, shows + by default, but no 'add' operation is occuring unless input changed
-let listofCalc = document.querySelector("#results"); //list of finished calcs
+let listofCalcContainer = document.querySelector("#results"); //list of finished calcs
 
 window.addEventListener("DOMContentLoaded", setup);
 
@@ -64,5 +64,13 @@ function calculate(dropdownOperator) {
   twonumber.value = "";
 
   //append result of prev calc to list#results
-  listofCalc.innerHTML += "<li>" + subOneNumber + "</li>";
+  listofCalcContainer.innerHTML += "<li>" + subOneNumber + "</li>";
+
+  //make list of results scrollable
+  //get content of 'results' list in order to set scroll to the last added li item
+  let listofCalc = listofCalcContainer.querySelectorAll("li");
+  let lastAddednewNumber = listofCalc[listofCalc.length - 1];
+  console.log(lastAddednewNumber);
+  lastAddednewNumber.scrollIntoView(false, { behaviour: "smooth" });
+  //listofCalc.querySelectorAll("li").scrollIntoView();
 }
