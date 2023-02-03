@@ -1,3 +1,4 @@
+"use strict";
 //variables
 let onenumber = document.querySelector("#firstnumber");
 let twonumber = document.querySelector("#secondnumber");
@@ -5,6 +6,8 @@ let arithOperator = document.querySelector("#operator");
 let subOneNumber; // the new firstnumber after a calculation
 let dropdownOperator = "undefined"; //dropdownOperator var storing arithOperators indicies.
 //dropdown menu value set to undefined, if no input on dropdown has been detected, shows + by default, but no 'add' operation is occuring unless input changed
+let listofCalc = document.querySelector("#results"); //list of finished calcs
+
 window.addEventListener("DOMContentLoaded", setup);
 
 function setup() {
@@ -29,7 +32,6 @@ function setup() {
 
 function calculate(dropdownOperator) {
   //if-statements that parses input-selected operator value and compares with the dropdown menues values.
-
   if (dropdownOperator === "add" || dropdownOperator === "undefined") {
     subOneNumber =
       // read the numbers from input field and calc_add them together into a new var
@@ -60,4 +62,7 @@ function calculate(dropdownOperator) {
   //clear inputfield for #secondnumber
   onenumber.value = subOneNumber;
   twonumber.value = "";
+
+  //append result of prev calc to list#results
+  listofCalc.innerHTML += "<li>" + subOneNumber + "</li>";
 }
