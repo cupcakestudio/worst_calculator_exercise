@@ -54,30 +54,30 @@ function calculate(dropdownOperator, roundTo) {
   if (dropdownOperator === "add" || dropdownOperator === "undefined") {
     subOneNumber =
       // read the numbers from input field and calc_add them together into a new var
-      Number.parseInt(onenumber.value, 10) +
+      Number.parseFloat(onenumber.value, 10) +
       // add operator here fron string conversion to arith Operators
-      Number.parseInt(twonumber.value, 10);
+      Number.parseFloat(twonumber.value, 10);
   } else if (dropdownOperator === "sub") {
     subOneNumber =
       // read the numbers from input field and subtract them together into a new var
-      Number.parseInt(onenumber.value, 10) -
-      // add operator here fron string conversion to arith Operators
-      Number.parseInt(twonumber.value, 10);
+      Number.parseFloat(onenumber.value, 10) -
+      // subtract operator here fron string conversion to arith Operators
+      Number.parseFloat(twonumber.value, 10);
   } else if (dropdownOperator === "mul") {
     subOneNumber =
       // read the numbers from input field and multiply them together into a new var
-      Number.parseInt(onenumber.value, 10) *
-      // add operator here fron string conversion to arith Operators
-      Number.parseInt(twonumber.value, 10);
+      Number.parseFloat(onenumber.value, 10) *
+      // multiply operator here fron string conversion to arith Operators
+      Number.parseFloat(twonumber.value, 10);
   } else {
     // read the numbers from input field and divide them together into a new var
     subOneNumber =
-      Number.parseInt(onenumber.value, 10) /
-      // add operator here fron string conversion to arith Operators
-      Number.parseInt(twonumber.value, 10);
+      Number.parseFloat(onenumber.value, 10) /
+      // divide operator here fron string conversion to arith Operators
+      Number.parseFloat(twonumber.value, 10);
   }
   // check if result should be rounded, round it and then add corresponding result to list
-  //missing to add float numbers in decimals, find an easy way to do it
+
   if (roundingCheckBox.checked) {
     //append result of prev calc to list#results
     listofCalcContainer.innerHTML +=
